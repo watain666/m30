@@ -1,0 +1,43 @@
+@import "plugins/scrollbars";
+// @import "plugins/numbered";
+
+$new-menu-width: 21rem !default;
+$toc-width: 26rem !default;
+
+.book-menu .book-menu-content {
+    width: $new-menu-width;
+}
+
+.book-menu {
+    flex: 0 0 $new-menu-width;
+    
+    .book-menu-content {
+        width: $new-menu-width;
+        @include fixed;
+    }
+}
+
+// Responsive styles
+@media screen and (max-width: $mobile-breakpoint) {
+
+    .book-menu {
+        margin-inline-start: -$new-menu-width;
+    }
+
+    #menu-control:checked~main {
+        .book-menu {
+            visibility: initial;
+        }
+
+        .book-menu .book-menu-content {
+            transform: translateX($new-menu-width);
+        }
+    }
+
+    // for RTL support
+    body[dir="rtl"] #menu-control:checked~main {
+        .book-menu .book-menu-content {
+            transform: translateX(-$new-menu-width);
+        }
+    }
+}
