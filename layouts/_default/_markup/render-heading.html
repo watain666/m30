@@ -1,0 +1,18 @@
+{{ $showDate := .Page.Site.Params.BookTitleWithDate | default false }}
+
+{{ if and (eq .Level 1) $showDate }}
+
+  <h{{ .Level }} id="{{ .Anchor | safeURL }}">
+    <!-- <div>
+      <img src="{{ "svg/calendar.svg" | relURL }}" class="book-icon" alt="" />
+      <span>{{ now.Format "January 2, 2006" }}</span>
+    </div> -->
+      {{ .Text | safeHTML }}
+    <a class="anchor" href="#{{ .Anchor | safeURL }}">#</a>
+  </h{{ .Level }}>
+{{ else }}
+  <h{{ .Level }} id="{{ .Anchor | safeURL }}">
+    {{ .Text | safeHTML }}
+    <a class="anchor" href="#{{ .Anchor | safeURL }}">#</a>
+  </h{{ .Level }}>
+{{ end }} 
