@@ -12,11 +12,7 @@
       return savedTheme;
     }
     
-    // Check system preference for auto mode
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    
+    // Default to light theme instead of following system preference
     return 'light';
   }
   
@@ -68,13 +64,40 @@
   }
   
   // Add event listeners to both toggle buttons
-  if (themeToggle) {
-    themeToggle.addEventListener('click', toggleTheme);
+  function addEventListeners(button) {
+    if (!button) return;
+    
+    // Prevent default touch behaviors
+    button.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      this.style.webkitTapHighlightColor = 'transparent';
+    }, { passive: false });
+    
+    button.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleTheme();
+    }, { passive: false });
+    
+    button.addEventListener('touchmove', function(e) {
+      e.preventDefault();
+    }, { passive: false });
+    
+    button.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+    
+    button.addEventListener('click', function(e) {
+      // Only handle click if it's not from a touch event
+      if (e.pointerType !== 'touch') {
+        e.preventDefault();
+        toggleTheme();
+      }
+    });
   }
   
-  if (themeToggleDesktop) {
-    themeToggleDesktop.addEventListener('click', toggleTheme);
-  }
+  addEventListeners(themeToggle);
+  addEventListeners(themeToggleDesktop);
   
   // Initialize buttons when DOM is loaded
   if (document.readyState === 'loading') {
@@ -84,6 +107,8 @@
   }
   
   // Listen for system theme changes (only if user hasn't manually set preference)
+  // Note: Disabled to always default to light theme
+  /*
   if (window.matchMedia) {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
       // Only update if user hasn't manually set a preference
@@ -93,4 +118,5 @@
       }
     });
   }
+  */
 })();
