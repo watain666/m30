@@ -1,6 +1,21 @@
 @import "plugins/scrollbars";
 // @import "plugins/numbered";
 
+// Footer date link styling
+.footer-date-link {
+  color: var(--body-font-color) !important;
+  text-decoration: none;
+  
+  &:hover {
+    color: var(--color-link);
+    text-decoration: underline;
+  }
+  
+  &:visited {
+    color: var(--body-font-color) !important;
+  }
+}
+
 // Theme toggle styles
 .theme-toggle {
   background: none;

@@ -1,2 +1,36 @@
+<!-- Prevent theme flash by applying theme before CSS loads -->
+<script>
+(function() {
+  function getCurrentTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme;
+    }
+    
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    
+    return 'light';
+  }
+  
+  function applyThemeClass() {
+    const theme = getCurrentTheme();
+    const rootElement = document.documentElement;
+    
+    if (theme === 'dark') {
+      rootElement.classList.add('dark-theme');
+      rootElement.classList.remove('light-theme');
+    } else {
+      rootElement.classList.add('light-theme');
+      rootElement.classList.remove('dark-theme');
+    }
+  }
+  
+  // Apply theme immediately
+  applyThemeClass();
+})();
+</script>
+
 {{- $themeToggleJS := resources.Get "theme-toggle.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $themeToggleJS.RelPermalink }}" {{ with $themeToggleJS.Data.Integrity }}integrity="{{ . }}" crossorigin="anonymous"{{ end }}></script>

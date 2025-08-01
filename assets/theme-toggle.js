@@ -20,7 +20,7 @@
     return 'light';
   }
   
-  // Apply theme
+  // Apply theme classes and update buttons
   function applyTheme(theme) {
     if (theme === 'dark') {
       rootElement.classList.add('dark-theme');
@@ -60,10 +60,11 @@
     applyTheme(newTheme);
   }
   
-  // Initialize theme on page load
-  function initTheme() {
+  // Initialize button states (theme classes should already be applied by inline script)
+  function initButtons() {
     const theme = getCurrentTheme();
-    applyTheme(theme);
+    updateToggleButton(themeToggle, theme);
+    updateToggleButton(themeToggleDesktop, theme);
   }
   
   // Add event listeners to both toggle buttons
@@ -75,11 +76,11 @@
     themeToggleDesktop.addEventListener('click', toggleTheme);
   }
   
-  // Initialize theme when DOM is loaded
+  // Initialize buttons when DOM is loaded
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initTheme);
+    document.addEventListener('DOMContentLoaded', initButtons);
   } else {
-    initTheme();
+    initButtons();
   }
   
   // Listen for system theme changes (only if user hasn't manually set preference)
