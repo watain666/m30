@@ -1,5 +1,5 @@
 <script>
-const redirectUrl = `/m30/day/${new Date().getDate()}/`;
+const redirectUrl = `/day/${new Date().getDate()}/`;
 window.location.href = redirectUrl;
 
 document.addEventListener('DOMContentLoaded', function() {
