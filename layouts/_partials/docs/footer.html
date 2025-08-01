@@ -1,27 +1,13 @@
 <div class="flex flex-wrap justify-between">
 
-  {{ if and .File .Site.Params.BookRepo .Site.Params.BookEditPath }}
   <div>
-    <a class="flex align-center" href="" title='' rel="noopener">
+    <a class="flex align-center">
       <img src="{{ "svg/calendar.svg" | relURL }}" class="book-icon" alt="" />
-      <span>{{ now.Format "2006-01-02" }}</span>
+      <span style="color: black;">{{ now.Format "2006-01-02" }}</span>
     </a>
   </div>
-  {{ end }}
-
-  {{ if and .File .Site.Params.BookRepo .Site.Params.BookEditPath }}
+  
     <div>
-      <a class="flex align-center" href="{{ partial "docs/links/edit" . }}" target="_blank" rel="noopener">
-        <img src="{{ "svg/edit.svg" | relURL }}" class="book-icon" alt="" />
-        <span>{{ i18n "Edit this page" }}</span>
-      </a>
+      ——記得今天說到做到，信守承諾
     </div>
-  {{ end }}
-  
   </div>
-  
-  {{ $script := resources.Get "clipboard.js" | resources.Minify }}
-  {{ with $script.Content }}
-    <script>{{ . | safeJS }}</script>
-  {{ end }}
-  
