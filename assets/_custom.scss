@@ -23,21 +23,11 @@
   padding: 0.25rem;
   cursor: pointer;
   border-radius: 0.25rem;
-  transition: background-color 0.2s ease, transform 0.1s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--body-font-color);
   flex-shrink: 0;
-  
-  &:hover {
-    background-color: var(--gray-100);
-  }
-  
-  &:active {
-    background-color: var(--gray-200);
-    transform: scale(0.95);
-  }
   
   .theme-icon {
     width: 16px;
@@ -59,6 +49,30 @@
   margin-left: 0.5rem;
 }
 
+// Sticky mobile header - like frozen table header  
+@media screen and (max-width: $mobile-breakpoint) {
+  // Use higher specificity to override theme defaults
+  .container .book-page .book-header,
+  .book-page .book-header {
+    display: block !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    background-color: var(--body-background) !important;
+    padding: 1rem 0 !important;
+    margin-bottom: 0 !important;
+    transition: transform 0.3s ease !important;
+    
+    // Default state: move up to create spacing effect
+    transform: translateY(-0.5rem);
+    
+    // Sticky state: normal position
+    &.sticky-active {
+      transform: translateY(0);
+    }
+  }
+}
+
 // Ensure brand area uses flexbox and adjusts properly
 .book-brand {
   flex: 1;
@@ -78,6 +92,14 @@
       display: block;
     }
   }
+  
+  // Dark theme sticky header
+  @media screen and (max-width: $mobile-breakpoint) {
+    .container .book-page .book-header,
+    .book-page .book-header {
+      background-color: var(--body-background) !important;
+    }
+  }
 }
 
 :root.light-theme {
@@ -90,6 +112,14 @@
     
     .theme-icon-dark {
       display: none;
+    }
+  }
+  
+  // Light theme sticky header
+  @media screen and (max-width: $mobile-breakpoint) {
+    .container .book-page .book-header,
+    .book-page .book-header {
+      background-color: var(--body-background) !important;
     }
   }
 }

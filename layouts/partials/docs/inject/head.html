@@ -31,3 +31,6 @@
 
 {{- $themeToggleJS := resources.Get "theme-toggle.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $themeToggleJS.RelPermalink }}" {{ with $themeToggleJS.Data.Integrity }}integrity="{{ . }}" crossorigin="anonymous"{{ end }}></script>
+
+{{- $stickyHeaderJS := resources.Get "sticky-header.js" | resources.Minify | resources.Fingerprint }}
+<script defer src="{{ $stickyHeaderJS.RelPermalink }}" {{ with $stickyHeaderJS.Data.Integrity }}integrity="{{ . }}" crossorigin="anonymous"{{ end }}></script>
