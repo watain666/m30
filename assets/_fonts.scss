@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'jf-openhuninn';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url(./fonts/jf-openhuninn-2.1.ttf) format('ttf');
+}
+
+body {
+  font-family: 'jf-openhuninn', sans-serif;
+}
+
+code {
+  font-family: 'jf-openhuninn', monospace;
+}

@@ -1,8 +1,7 @@
 @import "plugins/scrollbars";
 // @import "plugins/numbered";
 
-$new-menu-width: 21rem !default;
-$toc-width: 26rem !default;
+$new-menu-width: 22rem !default;
 
 .book-menu .book-menu-content {
     width: $new-menu-width;
@@ -25,10 +24,6 @@ $toc-width: 26rem !default;
     }
 
     #menu-control:checked~main {
-        .book-menu {
-            visibility: initial;
-        }
-
         .book-menu .book-menu-content {
             transform: translateX($new-menu-width);
         }
