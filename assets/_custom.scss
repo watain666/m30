@@ -1,6 +1,79 @@
 @import "plugins/scrollbars";
 // @import "plugins/numbered";
 
+// Theme toggle styles
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--body-font-color);
+  flex-shrink: 0;
+  
+  &:hover {
+    background-color: var(--gray-100);
+  }
+  
+  .theme-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .theme-icon-dark {
+    display: none;
+  }
+}
+
+// Mobile header theme toggle (next to hamburger menu)
+.theme-toggle:not(.theme-toggle-desktop) {
+  margin-left: 0.5rem;
+}
+
+// Desktop theme toggle in menu brand area
+.theme-toggle-desktop {
+  margin-left: 0.5rem;
+}
+
+// Ensure brand area uses flexbox and adjusts properly
+.book-brand {
+  flex: 1;
+  margin: 0;
+}
+
+// Manual theme classes override the auto theme behavior
+:root.dark-theme {
+  @include theme-dark;
+  
+  .theme-toggle {
+    .theme-icon-light {
+      display: none;
+    }
+    
+    .theme-icon-dark {
+      display: block;
+    }
+  }
+}
+
+:root.light-theme {
+  @include theme-light;
+  
+  .theme-toggle {
+    .theme-icon-light {
+      display: block;
+    }
+    
+    .theme-icon-dark {
+      display: none;
+    }
+  }
+}
+
 $new-menu-width: 22rem !default;
 
 .book-menu .book-menu-content {
