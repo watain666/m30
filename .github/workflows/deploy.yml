@@ -38,3 +38,4 @@ jobs:
           github_token: ${{ secrets.PAT }}
           publish_dir: ./public
           publish_branch: gh-pages
+          cname: miracle30.live
