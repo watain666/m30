@@ -3,7 +3,19 @@
   <div>
     <a class="flex align-center footer-date-link">
       <img src="{{ "svg/calendar.svg" | relURL }}" class="book-icon" alt="" />
-      <span>{{ now.Format "2006-01-02" }}</span>
+      <span id="current-date"></span>
+
+      <script>
+      function updateDate() {
+          const now = new Date();
+          const year = now.getFullYear();
+          const month = String(now.getMonth() + 1).padStart(2, '0');
+          const day = String(now.getDate()).padStart(2, '0');
+          const formattedDate = `${year}-${month}-${day}`;
+          document.getElementById('current-date').textContent = formattedDate;
+      }
+      updateDate();
+      </script>
     </a>
   </div>
   
