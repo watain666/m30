@@ -1,6 +1,7 @@
 // Sticky header and TOC scroll functionality
 (function() {
     let isInitialized = false;
+    let lastClickedTarget = null; // Move to global scope within IIFE
 
     function initStickyHeader() {
         // Only run sticky header logic on mobile
@@ -42,14 +43,28 @@
         document.querySelectorAll('label[for="menu-control"], label[for="toc-control"]')
         .forEach(function(toggle) {
             toggle.addEventListener('click', function(e) {
+                const forAttribute = toggle.getAttribute('for');
+                const checkbox = document.getElementById(forAttribute);
+                
+                // Handle TOC specially - CSS now prevents layout shifts
+                if (forAttribute === 'toc-control') {
+                    e.preventDefault();
+                    console.log('TOC toggle clicked');
+                    
+                    if (checkbox) {
+                        checkbox.checked = !checkbox.checked;
+                    }
+                    
+                    return;
+                }
+                
+                // For menu control, use original logic
                 const scrollY = window.scrollY;
                 
                 // Prevent any immediate scroll behavior
                 e.preventDefault();
                 
                 // Manually toggle the checkbox
-                const forAttribute = toggle.getAttribute('for');
-                const checkbox = document.getElementById(forAttribute);
                 if (checkbox) {
                     checkbox.checked = !checkbox.checked;
                 }
@@ -57,7 +72,7 @@
                 // Restore scroll position after any potential scrolling
                 setTimeout(function() {
                     window.scrollTo(0, scrollY);
-                }, 10); // Increased timeout to catch delayed scroll events
+                }, 10);
                 
                 // Additional safety check with multiple timeouts
                 setTimeout(function() {
@@ -76,30 +91,10 @@
         isInitialized = true;
     }
 
+
+
     // TOC scroll functionality
     function initTocScroll() {
-        // Function to get header height for offset calculation
-        function getHeaderOffset() {
-            const header = document.querySelector('.book-header');
-            if (header && window.innerWidth <= 768) {
-                // On mobile, account for sticky header height
-                const headerHeight = header.offsetHeight;
-                return headerHeight + 16; // Add some padding
-            }
-            return 0;
-        }
-
-        // Function to smooth scroll to target with offset
-        function scrollToTarget(target, offset = 0) {
-            const targetRect = target.getBoundingClientRect();
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const targetTop = targetRect.top + scrollTop - offset;
-
-            window.scrollTo({
-                top: targetTop,
-                behavior: 'smooth'
-            });
-        }
 
         // Handle TOC anchor clicks
         function handleTocClick(event) {
@@ -114,9 +109,9 @@
             const target = document.getElementById(targetId);
             
             if (target) {
-                event.preventDefault();
-                const offset = getHeaderOffset();
-                scrollToTarget(target, offset);
+                lastClickedTarget = target; // Remember this target
+                console.log('TOC clicked:', { targetId, target }); // Debug info
+                // Let browser handle scrolling naturally with CSS scroll-padding
             }
         }
 
@@ -130,31 +125,52 @@
             });
         }
 
-        // Handle hash changes (back/forward navigation)
-        function handleHashChange() {
-            const hash = window.location.hash;
-            if (hash) {
-                const target = document.getElementById(hash.substring(1));
-                if (target) {
-                    setTimeout(() => {
-                        const offset = getHeaderOffset();
-                        scrollToTarget(target, offset);
-                    }, 100); // Small delay to ensure page is settled
-                }
-            }
-        }
-
         // Initialize TOC scroll handlers
         attachTocHandlers();
+    }
+
+    // Click outside to close TOC functionality
+    function initClickOutsideToClose() {
+        const tocControl = document.getElementById('toc-control');
+        const tocContainer = document.querySelector('.book-toc');
+        const tocToggle = document.querySelector('label[for="toc-control"]');
+        const mobileHeaderToc = document.querySelector('.book-header aside');
+        const tocOverlay = document.querySelector('.book-toc-overlay');
         
-        // Handle page load with hash
-        if (window.location.hash) {
-            // Delay to ensure page is fully loaded
-            setTimeout(handleHashChange, 500);
+        if (!tocControl) return;
+
+        // Function to close TOC (no more custom scrolling)
+        function closeToc() {
+            console.log('Closing TOC:', { lastClickedTarget }); // Debug info
+            tocControl.checked = false;
         }
 
-        // Handle hash changes during navigation
-        window.addEventListener('hashchange', handleHashChange);
+        // Handle clicks on the document
+        document.addEventListener('click', function(event) {
+            // Only process if TOC is currently open
+            if (!tocControl.checked) return;
+
+            const target = event.target;
+            
+            // Check if click is inside any TOC area or TOC toggle button
+            const isInsideToc = (tocContainer && tocContainer.contains(target)) || 
+                               (mobileHeaderToc && mobileHeaderToc.contains(target));
+            const isToggleButton = tocToggle && tocToggle.contains(target);
+            const isOverlayClick = tocOverlay && tocOverlay.contains(target);
+            
+            // If click is outside all TOC areas (including overlay), close TOC
+            if (!isInsideToc && !isToggleButton || isOverlayClick) {
+                closeToc();
+            }
+        });
+
+        // Handle escape key to close TOC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && tocControl.checked) {
+                closeToc();
+                event.preventDefault(); // Prevent default escape behavior
+            }
+        });
     }
 
     function handleResize() {
@@ -168,12 +184,16 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Always initialize TOC scroll functionality
             initTocScroll();
+            // Initialize click outside to close TOC
+            initClickOutsideToClose();
             // Only initialize sticky header on mobile
             initStickyHeader();
         });
     } else {
         // Always initialize TOC scroll functionality
         initTocScroll();
+        // Initialize click outside to close TOC
+        initClickOutsideToClose();
         // Only initialize sticky header on mobile
         initStickyHeader();
     }

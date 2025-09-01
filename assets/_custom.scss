@@ -57,11 +57,13 @@
     display: block !important;
     position: sticky !important;
     top: 0 !important;
-    z-index: 1000 !important;
+    z-index: 1001 !important; // Consistent with above
     background-color: var(--body-background) !important;
     padding: 1rem 0 !important;
     margin-bottom: 0 !important;
     transition: transform 0.3s ease !important;
+    
+
     
     // Default state: move up to create spacing effect
     transform: translateY(-0.5rem);
@@ -71,7 +73,88 @@
       transform: translateY(0);
     }
   }
+  
+  // Add scroll padding to account for sticky header
+  html {
+    scroll-padding-top: 4rem;
+  }
+  
+  // Alternative: add scroll margin to headings
+  h1, h2, h3, h4, h5, h6 {
+    scroll-margin-top: 4rem;
+  }
+  
+  // Fix TOC to prevent layout shifts on mobile
+  .book-header {
+    // Ensure header is above overlay
+    z-index: 1001;
+    
+    aside {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--body-background);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1002; // Above header and overlay
+      max-height: 70vh;
+      overflow-y: auto;
+      border-radius: 0 0 0.5rem 0.5rem;
+      
+      // Initially hidden with transform instead of display
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    }
+  }
+  
+  // When TOC is checked, show it with transform and add overlay effect
+  #toc-control:checked ~ main {
+    .book-header aside {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    // Add semi-transparent overlay like menu but exclude header
+    .book-page {
+      position: relative !important; // Ensure positioning context for absolute overlay
+    }
+    
+    // Only darken the article content, not header or other elements
+    .book-page article.markdown,
+    .book-page .book-footer,
+    .book-page .book-comments {
+      opacity: 0.25;
+    }
+    
+    // Add overlay element (exactly like book-menu-overlay)
+    .book-toc-overlay {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+  
+  // Hidden by default and make it clickable
+  .book-toc-overlay {
+    display: none;
+    
+    // Focus outline for accessibility
+    &:focus {
+      outline: 2px solid var(--color-link);
+      outline-offset: -2px;
+    }
+  }
 }
+
+
+
+// Ensure book-page has positioning context for overlay (moved to mobile section)
 
 // Ensure brand area uses flexbox and adjusts properly
 .book-brand {
