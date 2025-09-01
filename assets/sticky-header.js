@@ -49,7 +49,6 @@
                 // Handle TOC specially - CSS now prevents layout shifts
                 if (forAttribute === 'toc-control') {
                     e.preventDefault();
-                    console.log('TOC toggle clicked');
                     
                     if (checkbox) {
                         checkbox.checked = !checkbox.checked;
@@ -113,12 +112,10 @@
             
             if (target) {
                 lastClickedTarget = target; // Remember this target
-                console.log('TOC clicked:', { targetId, target }); // Debug info
                 
                 // Auto-close TOC after clicking an anchor link
                 const tocControl = document.getElementById('toc-control');
                 if (tocControl && tocControl.checked) {
-                    console.log('Auto-closing TOC after anchor click');
                     tocControl.checked = false;
                 }
                 
@@ -175,7 +172,6 @@
 
         // Function to close TOC (no more custom scrolling)
         function closeToc() {
-            console.log('Closing TOC:', { lastClickedTarget }); // Debug info
             tocControl.checked = false;
         }
 
