@@ -16,6 +16,15 @@ self.addEventListener("fetch", (event) => {
   if (request.method !== "GET") {
     return;
   }
+  
+  // Skip service worker for audio files to avoid encoding issues
+  const url = new URL(request.url);
+  const audioExtensions = ['.m4a', '.mp3', '.wav', '.ogg', '.aac'];
+  const isAudioFile = audioExtensions.some(ext => url.pathname.toLowerCase().endsWith(ext));
+  
+  if (isAudioFile) {
+    return; // Let browser handle audio files directly
+  }
 
   /**
    * @param {Response} response
@@ -36,7 +45,21 @@ self.addEventListener("fetch", (event) => {
    * @param {Error} error
    */
   function serveFromCache(error) {
-    return caches.open(cacheName).then((cache) => cache.match(request.url));
+    return caches.open(cacheName).then((cache) => {
+      return cache.match(request.url).then((response) => {
+        if (response) {
+          return response;
+        }
+        // If no cached response is found, return a basic 404 response
+        return new Response('Resource not found', {
+          status: 404,
+          statusText: 'Not Found',
+          headers: new Headers({
+            'Content-Type': 'text/plain'
+          })
+        });
+      });
+    });
   }
 
   /**
@@ -47,5 +70,13 @@ self.addEventListener("fetch", (event) => {
     return response.type === "basic" && response.ok && !response.headers.has("Content-Disposition")
   }
 
-  event.respondWith(fetch(request).then(saveToCache).catch(serveFromCache));
+  event.respondWith(
+    fetch(request)
+      .then(saveToCache)
+      .catch((error) => {
+        // Log the error for debugging
+        console.warn('Fetch failed for:', request.url, error);
+        return serveFromCache(error);
+      })
+  );
 });
