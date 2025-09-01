@@ -4,10 +4,15 @@
   {{ partial "docs/html-head" . }}
   {{ partial "docs/inject/head" . }}
 
-  {{ if or ( .HasShortcode "audio" ) ( .HasShortcode "video" ) ( .HasShortcode "archive-audio" ) }}
+  {{ if or ( .HasShortcode "audio" ) ( .HasShortcode "video" ) ( .HasShortcode "archive-audio" ) ( .HasShortcode "audios" ) }}
   
   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
   <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  
+  {{/* Load audio fallback handler */}}
+  {{ $audioFallback := resources.Get "audio-fallback.js" | resources.Minify }}
+  <script src="{{ $audioFallback.RelPermalink }}" defer></script>
+  
   <script>
     (function () {
       const players = Array.from(document.querySelectorAll('.player')).map(

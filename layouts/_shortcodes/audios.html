@@ -2,10 +2,13 @@
   <audio 
     controls 
     preload="{{ .Get "preload" | default "metadata" }}"
+    crossorigin="anonymous"
   >
     {{ with .Get "src" }}
-      <source src="{{ . | relURL }}" type="audio/mp4">
-      <source src="{{ . | relURL }}" type="audio/mpeg">
+      {{ $audioURL := . | relURL }}
+      <source src="{{ $audioURL }}" type="audio/mp4">
+      <source src="{{ $audioURL }}" type="audio/mpeg">
+      <source src="{{ $audioURL }}" type="audio/m4a">
     {{ end }}
     瀏覽器不支援音檔播放。
   </audio>
