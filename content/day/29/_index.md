@@ -1,10 +1,10 @@
 ---
-title: Day 29 - 謝謝您，上主
+title: 第 29 天 謝謝您，上主
 type: day
 weight: 29
 ---
 
-# Day 29 - 謝謝您，上主
+# 第 29 天 謝謝您，上主
 
 {{< audios src="a/29/謝謝您，上主.m4a">}}
 

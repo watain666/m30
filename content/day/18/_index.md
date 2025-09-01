@@ -1,10 +1,10 @@
 ---
-title: Day 18 - 我只選擇平安
+title: 第 18 天 我只選擇平安
 type: day
 weight: 18
 ---
 
-# Day 18 - 我只選擇平安
+# 第 18 天 我只選擇平安
 
 {{< audios src="a/18/我只選擇平安.m4a">}}
 

@@ -1,10 +1,10 @@
 ---
-title: Day 6 - 我警醒於光中
+title: 第 6 天 我警醒於光中
 type: day
 weight: 6
 ---
 
-# Day 6 - 我警醒於光中
+# 第 6 天 我警醒於光中
 
 {{< audios src="a/6/我迎向光中.m4a">}}
 

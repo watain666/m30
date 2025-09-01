@@ -1,10 +1,10 @@
 ---
-title: Day 11 - 施即是受
+title: 第 11 天 施即是受
 type: day
 weight: 11
 ---
 
-# Day 11 - 施即是受
+# 第 11 天 施即是受
 
 {{< audios src="a/11/施即是受.m4a">}}
 

@@ -1,10 +1,10 @@
 ---
-title: Day 5 - 我願意看見光
+title: 第 5 天 我願意看見光
 type: day
 weight: 5
 ---
 
-# Day 5 - 我願意看見光
+# 第 5 天 我願意看見光
 
 {{< audios src="a/5/我願意看見光.m4a">}}
 
