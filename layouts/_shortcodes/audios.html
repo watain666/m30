@@ -1,6 +1,13 @@
-<figure class="text-center" {{ with .Get "class" }}class="{{ . }}"{{ end }}>
-  <audio controls preload="{{ .Get "preload" | default "metadata" }}">
-    {{ with .Get "src" }}<source src="{{ . | relURL }}" type="audio/mp4">{{ end }}
+<figure class="text-center audio-container" {{ with .Get "class" }}class="{{ . }}"{{ end }}>
+  <audio 
+    controls 
+    preload="{{ .Get "preload" | default "metadata" }}"
+  >
+    {{ with .Get "src" }}
+      <source src="{{ . | relURL }}" type="audio/mp4">
+      <source src="{{ . | relURL }}" type="audio/mpeg">
+    {{ end }}
+    瀏覽器不支援音檔播放。
   </audio>
 {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
 </figure>
