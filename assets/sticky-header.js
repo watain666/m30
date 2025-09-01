@@ -104,6 +104,9 @@
             const href = link.getAttribute('href');
             if (!href || href === '#') return;
 
+            // Prevent default anchor behavior so we can handle scrolling manually
+            event.preventDefault();
+
             // Find the target element
             const targetId = href.substring(1);
             const target = document.getElementById(targetId);
@@ -111,7 +114,38 @@
             if (target) {
                 lastClickedTarget = target; // Remember this target
                 console.log('TOC clicked:', { targetId, target }); // Debug info
-                // Let browser handle scrolling naturally with CSS scroll-padding
+                
+                // Auto-close TOC after clicking an anchor link
+                const tocControl = document.getElementById('toc-control');
+                if (tocControl && tocControl.checked) {
+                    console.log('Auto-closing TOC after anchor click');
+                    tocControl.checked = false;
+                }
+                
+                // Calculate proper scroll position with offset for sticky header
+                const isMobile = window.innerWidth <= 768; // Match $mobile-breakpoint
+                let headerOffset = 0;
+                
+                if (isMobile) {
+                    // Try to get actual header height dynamically
+                    const header = document.querySelector('.book-header');
+                    if (header) {
+                        headerOffset = header.offsetHeight - 50; // Reduce buffer, might be too much
+                    } else {
+                        headerOffset = 30; // Smaller fallback offset
+                    }
+                }
+                
+                const targetPosition = target.offsetTop - headerOffset;
+                
+                // Smooth scroll to the target with proper offset
+                window.scrollTo({
+                    top: Math.max(0, targetPosition),
+                    behavior: 'smooth'
+                });
+                
+                // Update URL without triggering page jump
+                history.replaceState(null, null, href);
             }
         }
 
