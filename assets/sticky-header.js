@@ -37,7 +37,37 @@
 
         // Listen to scroll events with throttling
         window.addEventListener('scroll', onScroll, { passive: true });
-        
+
+        // Scroll-back fix for menu/toc toggles
+        document.querySelectorAll('label[for="menu-control"], label[for="toc-control"]').
+        forEach(function(toggle) {
+            toggle.addEventListener('click', function(e) {
+                const scrollY = window.scrollY;
+                
+                // Prevent any immediate scroll behavior
+                e.preventDefault();
+                
+                // Manually toggle the checkbox
+                const forAttribute = toggle.getAttribute('for');
+                const checkbox = document.getElementById(forAttribute);
+                if (checkbox) {
+                    checkbox.checked = !checkbox.checked;
+                }
+                
+                // Restore scroll position after any potential scrolling
+                setTimeout(function() {
+                    window.scrollTo(0, scrollY);
+                }, 10); // Increased timeout to catch delayed scroll events
+                
+                // Additional safety check with multiple timeouts
+                setTimeout(function() {
+                    if (window.scrollY !== scrollY) {
+                        window.scrollTo(0, scrollY);
+                    }
+                }, 50);
+            });
+        });
+
         // Initial check
         updateHeaderState();
         
