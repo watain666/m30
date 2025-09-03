@@ -19,16 +19,32 @@
           p => new Plyr(p, {
               controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'settings'],
               settings: ['speed'],
+              autoplay: false, // 確保不自動播放
               tooltips: { controls: true, seek: true },
           })
       );
+      
       // Stop other players when starting
-      players.forEach(function(p){
+      players.forEach(function(p, index){
           p.on('play', event => {
               const instance = event.detail.plyr;
               console.log('Stop others players');
               players.forEach(function(p){ if(p != instance) p.stop()});
-          })
+          });
+          
+          // when the audio file ends, automatically play the next audio file
+          p.on('ended', event => {
+              const currentIndex = index;
+              const nextIndex = currentIndex + 1;
+              
+              // if there is another audio file, play it
+              if (nextIndex < players.length) {
+                  console.log(`播放完第 ${currentIndex + 1} 個音檔，開始播放第 ${nextIndex + 1} 個音檔`);
+                  players[nextIndex].play();
+              } else {
+                  console.log('所有音檔播放完畢');
+              }
+          });
       });
     });
   </script>
