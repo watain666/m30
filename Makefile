@@ -20,6 +20,7 @@ update-version:
 		rm -f hugo.toml.bak; \
 		git add hugo.toml; \
 		git commit -m "Bump version to $$NEW_VERSION"; \
+		git push origin master; \
 		git tag $$NEW_VERSION; \
 		git push origin $$NEW_VERSION; \
 		echo "Version updated to: $$NEW_VERSION"; \
