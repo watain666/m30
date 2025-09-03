@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
-## [0.1.2] - 2025-01-17
+## [0.1.1] - 2025-09-03
+
+### Added
+- Update Plyr menu positioning and add internationalization support for audio player controls
+- Add Open Graph image for improved social media sharing
+- Add comprehensive README.md with detailed project documentation
+- Add CHANGELOG.md for tracking project changes
 
 ### Fixed
 - Resolve Hugo shortcode processing errors that caused `HAHAHUGOSHORTCODE` warnings
@@ -13,6 +19,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 - Fix punctuation inconsistencies in audio file names (comma vs period separator)
 - Fix character encoding issues in Chinese audio filenames
 - Remove problematic nested shortcode usage in guide page
+- Add audio shortcode for embedding audio players with customizable options
+- Enhance PWA support by adding multiple favicon sizes and updating web app manifest
 
 ### Changed
 - Standardize all 30-day course titles to match book table of contents exactly
@@ -20,15 +28,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 - Improve audio file naming consistency with course titles
 - Enhance shortcode syntax compliance for better Hugo processing
 - Ensure all audio shortcode references point to existing files
-
-## [0.1.1] - 2025-09-03
-
-### Added
-- Add Open Graph image for improved social media sharing
-- Add comprehensive README.md with detailed project documentation
-- Add CHANGELOG.md for tracking project changes
-
-### Changed
 - Enhance audio player functionality with autoplay control and automatic playback of subsequent audio files
 - Implement Plyr audio player styles for better user experience
 - Update Plyr styles and controls for improved functionality and consistency
@@ -36,10 +35,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 - Refine navigation instructions in user guide for clarity on course selection
 - Update meta tag for mobile web app capability to align with current standards
 - Correct typographical errors in Chinese text for improved readability
-
-### Fixed
-- Add audio shortcode for embedding audio players with customizable options
-- Enhance PWA support by adding multiple favicon sizes and updating web app manifest
 
 ### Removed
 - Remove useless audio fallback handler

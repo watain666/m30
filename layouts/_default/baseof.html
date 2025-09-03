@@ -19,8 +19,31 @@
           p => new Plyr(p, {
               controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'settings'],
               settings: ['speed'],
-              autoplay: false, // 確保不自動播放
+              autoplay: false,
               tooltips: { controls: true, seek: true },
+              i18n: {
+                restart: '重播', rewind: '倒帶 {seektime} 秒',
+                fastForward: '快轉 {seektime} 秒',
+                play: '播放', pause: '暫停',
+                seek: '尋找',
+                played: '已播放',
+                buffered: '緩衝',
+                currentTime: '目前時間', duration: '總共時間',
+                volume: '音量', mute: '靜音', unmute: '取消靜音',
+                captions: '內嵌字幕',
+                enableCaptions: '開啟內嵌字幕', disableCaptions: '關閉內嵌字幕',
+                enterFullscreen: '全螢幕', exitFullscreen: '退出全螢幕',
+                frameTitle: '{title} 播放器',
+                settings: '設定',
+                speed: '倍速', normal: '正常',
+                quality: '畫質',
+                loop: '循還播放',
+                start: '開始', end: '結束',
+                all: '全部',
+                reset: '重置',
+                disabled: '關閉',
+                advertisement: '廣告',
+              }
           })
       );
       
