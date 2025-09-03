@@ -11,14 +11,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 - Add Open Graph image for improved social media sharing
 - Add comprehensive README.md with detailed project documentation
 - Add CHANGELOG.md for tracking project changes
-
-### Fixed
-- Resolve Hugo shortcode processing errors that caused `HAHAHUGOSHORTCODE` warnings
-- Fix nested shortcode syntax issue in Markdown links that prevented proper rendering
-- Correct audio file references to match actual filenames
-- Fix punctuation inconsistencies in audio file names (comma vs period separator)
-- Fix character encoding issues in Chinese audio filenames
-- Remove problematic nested shortcode usage in guide page
 - Add audio shortcode for embedding audio players with customizable options
 - Enhance PWA support by adding multiple favicon sizes and updating web app manifest
 
@@ -27,6 +19,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 - Update title formatting for consistency across all course pages
 - Improve audio file naming consistency with course titles
 - Enhance shortcode syntax compliance for better Hugo processing
+- Simplified footer date display by removing calendar icon for cleaner appearance
+- Optimized footer alignment structure to resolve layout issues after theme updates
+- Restored `footer-date-link` styling classes for consistent text formatting
+
+### Fixed
+- Resolve Hugo shortcode processing errors that caused `HAHAHUGOSHORTCODE` warnings
+- Fix nested shortcode syntax issue in Markdown links that prevented proper rendering
+- Correct audio file references to match actual filenames
+- Fix punctuation inconsistencies in audio file names (comma vs period separator)
+- Fix character encoding issues in Chinese audio filenames
+- Remove problematic nested shortcode usage in guide page
+- Fixed footer alignment issues that occurred after Hugo theme updates
+- Resolved footer element misalignment between date and motivational text
 - Ensure all audio shortcode references point to existing files
 - Enhance audio player functionality with autoplay control and automatic playback of subsequent audio files
 - Implement Plyr audio player styles for better user experience
