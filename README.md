@@ -28,19 +28,6 @@
 - **中文字型優化** - 使用 jf-openhuninn 字型提升閱讀體驗
 - **直覺式導航** - 清晰的課程目錄和導航結構
 
-## 🏗️ Tech stack
-
-### 框架、主題
-- [Hugo](https://gohugo.io/) - 靜態網站生成器
-- [hugo-book](https://github.com/alex-shpak/hugo-book) - 主要佈局和樣式主題
-- [hugo-shortcode-roneo-collection](https://github.com/RoneoOrg/hugo-shortcode-roneo-collection) - 圖示和元件支援
-
-### 前端技術
-- [SCSS](https://sass-lang.com/) - 樣式預處理器，模組化 CSS 管理
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - 互動功能和 PWA 支援
-- [Plyr.js](https://plyr.io) - 高品質音檔播放器
-- Service Worker - 快取策略和離線支援
-
 ## 📚 內容結構
 
 ### 課程內容
@@ -111,3 +98,29 @@ hugo server -D
 ## 📞 聯絡資訊
 
 如有任何問題、建議或技術支援需求，歡迎直接發 issue
+
+## 🛠️ Development
+
+### Requirements
+- Hugo
+- Git
+
+### Installation Steps
+```bash
+git clone https://github.com/watain666/m30 --recursive 
+cd m30
+hugo server -D
+```
+
+## 🏗️ Tech Stack
+
+### Framework & Themes
+- [Hugo](https://gohugo.io/) - Static site generator
+- [hugo-book](https://github.com/alex-shpak/hugo-book) - Main layout and styling theme
+- [hugo-shortcode-roneo-collection](https://github.com/RoneoOrg/hugo-shortcode-roneo-collection) - Icon and component support
+
+### Frontend Technologies
+- [SCSS](https://sass-lang.com/) - CSS preprocessor for modular CSS management
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Interactive features and PWA support
+- [Plyr.js](https://plyr.io) - High-quality video/audio player
+- Service Worker - Caching strategy and offline support
