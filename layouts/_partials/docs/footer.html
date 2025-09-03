@@ -1,25 +1,27 @@
 <div class="flex flex-wrap justify-between">
-
   <div>
-    <a class="flex align-center footer-date-link">
-      <img src="{{ "svg/calendar.svg" | relURL }}" class="book-icon" alt="" />
+    <a class="align-center footer-date-link">
       <span id="current-date"></span>
-
-      <script>
-      function updateDate() {
-          const now = new Date();
-          const year = now.getFullYear();
-          const month = String(now.getMonth() + 1).padStart(2, '0');
-          const day = String(now.getDate()).padStart(2, '0');
-          const formattedDate = `${year}-${month}-${day}`;
-          document.getElementById('current-date').textContent = formattedDate;
-      }
-      updateDate();
-      </script>
     </a>
   </div>
   
-  <div class="footer-date-link">
-    ——記得今天說到做到，信守承諾
+  <div>
+    <span class="flex align-center footer-date-link">
+      ——記得今天說到做到，信守承諾
+    </span>
   </div>
 </div>
+
+{{ partial "docs/prev-next" . }}
+
+<script>
+  function updateDate() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const formattedDate = `${year}-${month}-${day}`;
+      document.getElementById('current-date').textContent = formattedDate;
+  }
+  updateDate();
+  </script>
