@@ -17,7 +17,9 @@
     document.addEventListener('DOMContentLoaded', function() {
       const players = Array.from(document.querySelectorAll('.player')).map(
           p => new Plyr(p, {
-              controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'download', 'fullscreen'],
+              controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'settings'],
+              settings: ['speed'],
+              tooltips: { controls: true, seek: true },
           })
       );
       // Stop other players when starting

@@ -95,11 +95,10 @@
       left: 0;
       right: 0;
       background: var(--body-background);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-bottom: 1px solid var(--color-link);
       z-index: 1002; // Above header and overlay
       max-height: 70vh;
       overflow-y: auto;
-      border-radius: 0 0 0.5rem 0.5rem;
       
       // Initially hidden with transform instead of display
       transform: translateY(-100%);
@@ -165,10 +164,10 @@
 // General Plyr styles that work with both themes
 .plyr {
   border-radius: 0.375rem; // Match site's border radius
-  overflow: hidden;
+  overflow: visible !important; // Critical: Allow tooltips to show outside bounds
   
   // Ensure plyr respects theme colors
-  --plyr-color-main: var(--color-link);
+  --plyr-color-main: var(--body-font-color);
   
   // Audio player specific styles
   &.plyr--audio {
@@ -180,7 +179,7 @@
     }
     
     .plyr__progress__played {
-      background: var(--color-link);
+      background: var(--body-font-color);
     }
     
     .plyr__volume--display {
@@ -190,14 +189,14 @@
   
   // Button hover states
   .plyr__control:hover {
-    background: var(--color-link) !important;
+    background: var(--body-font-color) !important;
     color: white !important;
   }
   
   // Progress bar
   .plyr__progress {
     input[type="range"] {
-      color: var(--color-link);
+      color: var(--body-font-color);
     }
   }
 }
@@ -222,43 +221,6 @@
     .book-page .book-header {
       background-color: var(--body-background) !important;
     }
-  }
-  
-  // Plyr dark theme styles
-  .plyr--full-ui input[type=range] {
-    color: var(--color-link);
-  }
-
-  .plyr__control--overlaid {
-    background: rgba(132, 178, 255, .8); // Using dark theme link color with transparency
-  }
-
-  .plyr--video .plyr__control.plyr__tab-focus,
-  .plyr--video .plyr__control:hover,
-  .plyr--video .plyr__control[aria-expanded=true] {
-    background: var(--color-link);
-  }
-
-  .plyr__control.plyr__tab-focus {
-    box-shadow: 0 0 0 5px rgba(132, 178, 255, .5); // Using dark theme link color with transparency
-  }
-
-  .plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]::before {
-    background: var(--color-link);
-  }
-  
-  // Additional dark theme plyr styles
-  .plyr {
-    --plyr-color-main: var(--color-link);
-  }
-  
-  .plyr--audio .plyr__controls {
-    background: var(--body-background);
-    color: var(--body-font-color);
-  }
-  
-  .plyr__progress__buffer {
-    background: var(--gray-500);
   }
 }
 
@@ -285,7 +247,7 @@
   
   // Plyr light theme styles
   .plyr--full-ui input[type=range] {
-    color: var(--color-link);
+    color: var(--body-font-color);
   }
 
   .plyr__control--overlaid {
@@ -295,7 +257,7 @@
   .plyr--video .plyr__control.plyr__tab-focus,
   .plyr--video .plyr__control:hover,
   .plyr--video .plyr__control[aria-expanded=true] {
-    background: var(--color-link);
+    background: var(--body-font-color);
   }
 
   .plyr__control.plyr__tab-focus {
@@ -303,12 +265,12 @@
   }
 
   .plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]::before {
-    background: var(--color-link);
+    background: var(--body-font-color);
   }
   
   // Additional light theme plyr styles
   .plyr {
-    --plyr-color-main: var(--color-link);
+    --plyr-color-main: var(--body-font-color);
   }
   
   .plyr--audio .plyr__controls {
