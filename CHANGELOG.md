@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.2] - 2025-09-04
+
+### Added
+- Add versioning support and build automation with version parameter in hugo.toml
+- Create Makefile to automate version updates, website builds, and development server setup
+- Add metadata to audio files for mobile media player display
+
+### Changed
+- Enhance footer layout and spacing with improved bottom margin for footer date link
+- Add horizontal rule in footer for better visual separation
+
 ## [0.1.1] - 2025-09-03
 
 ### Added
