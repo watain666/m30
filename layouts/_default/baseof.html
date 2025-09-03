@@ -4,31 +4,31 @@
   {{ partial "docs/html-head" . }}
   {{ partial "docs/inject/head" . }}
 
-  {{ if or ( .HasShortcode "audio" ) ( .HasShortcode "video" ) ( .HasShortcode "archive-audio" ) ( .HasShortcode "audios" ) }}
-  
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  {{ if or ( .HasShortcode "audio" ) ( .HasShortcode "video" )  ( .HasShortcode "archive-audio" ) }}
   
   {{/* Load audio fallback handler */}}
-  {{ $audioFallback := resources.Get "audio-fallback.js" | resources.Minify }}
-  <script src="{{ $audioFallback.RelPermalink }}" defer></script>
+  {{ $plyr := resources.Get "plyr3.8.3.polyfilled.js" | resources.Minify }}
+  <script src="{{ $plyr.RelPermalink }}" defer></script>
+
+  {{ $plyrCss := resources.Get "plyr3.8.3.css" | resources.Minify }}
+  <link rel="stylesheet" href="{{ $plyrCss.RelPermalink }}" />
   
   <script>
-    (function () {
+    document.addEventListener('DOMContentLoaded', function() {
       const players = Array.from(document.querySelectorAll('.player')).map(
-        p => new Plyr(p, {
-          controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'download', 'fullscreen'],
-              })
-          );
-    { {/*  Stop other players when starting  */ } }
-    players.forEach(function (p) {
-      p.on('play', event => {
-        const instance = event.detail.plyr;
-        console.log('Stop others players');
-        players.forEach(function (p) { if (p != instance) p.stop() });
-      })
+          p => new Plyr(p, {
+              controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'download', 'fullscreen'],
+          })
+      );
+      // Stop other players when starting
+      players.forEach(function(p){
+          p.on('play', event => {
+              const instance = event.detail.plyr;
+              console.log('Stop others players');
+              players.forEach(function(p){ if(p != instance) p.stop()});
+          })
+      });
     });
-      }) ();
   </script>
   
   {{ end }}
