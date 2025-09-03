@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.2] - 2025-01-17
+
+### Fixed
+- Resolve Hugo shortcode processing errors that caused `HAHAHUGOSHORTCODE` warnings
+- Fix nested shortcode syntax issue in Markdown links that prevented proper rendering
+- Correct audio file references to match actual filenames
+- Fix punctuation inconsistencies in audio file names (comma vs period separator)
+- Fix character encoding issues in Chinese audio filenames
+- Remove problematic nested shortcode usage in guide page
+
+### Changed
+- Standardize all 30-day course titles to match book table of contents exactly
+- Update title formatting for consistency across all course pages
+- Improve audio file naming consistency with course titles
+- Enhance shortcode syntax compliance for better Hugo processing
+- Ensure all audio shortcode references point to existing files
+
 ## [0.1.1] - 2025-09-03
 
 ### Added
