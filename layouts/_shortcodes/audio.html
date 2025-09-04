@@ -4,6 +4,8 @@
 {{- $caption := "" -}}
 {{- $class := "" -}}
 {{- $preload := "" -}}
+{{- $title := "" -}}
+{{- $artist := "" -}}
 
 
 {{- if .IsNamedParams }}
@@ -11,16 +13,33 @@
     {{- $caption = .Get "caption" -}}
     {{- $class = .Get "class" -}}
     {{- $preload = .Get "preload" | default "metadata" -}}
+    {{- $title = .Get "title" -}}
+    {{- $artist = .Get "artist" -}}
 {{- else }}
     {{- $src = .Get 0 -}}
     {{- $caption = .Get 1 -}}
     {{- $class = .Get 2 -}}
     {{- $preload = .Get 3 -}}
+    {{- $title = .Get 4 -}}
+    {{- $artist = .Get 5 -}}
 {{- end }}
 
+{{/* 如果沒有提供title，從檔案名稱提取 */}}
+{{- if not $title -}}
+    {{- $filename := path.Base $src -}}
+    {{- $title = strings.TrimSuffix (path.Ext $filename) $filename -}}
+{{- end -}}
+
+{{/* 如果沒有提供artist，使用網站標題 */}}
+{{- if not $artist -}}
+    {{- $artist = .Site.Title -}}
+{{- end -}}
 
 <figure {{ with $class }}class="{{ . }}"{{ end }}>
-  <audio controls class="player" preload="{{ $preload }}">
+  <audio controls class="player" preload="{{ $preload }}" 
+         data-title="{{ $title }}" 
+         data-artist="{{ $artist }}"
+         data-src="{{ $src | relURL }}">
     {{ with $src }}
     <source src="{{ . | relURL }}" type="audio/mpeg">
     <source src="{{ . | relURL }}" type="audio/m4a">
