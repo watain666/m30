@@ -194,7 +194,7 @@ bookFlatSection: true
 
 如果您在使用網站的過程中遇到任何問題，或有任何建議，歡迎透過 E-Mail 與我聯絡
 
-📧 E-Mail: tiaui@pm.me
+📧 E-Mail: admin@miracle30.live
 
 ---
 
