@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.5] - 2025-09-05
+
+### Added
+- Add HTML partial for dynamic document head title inclusion in documentation pages
+- Enhance audio shortcode with optional title and artist parameters for better metadata control
+
+### Changed
+- Improve text formatting and readability in daily reflections (Day 7, Day 28, Day 30)
+- Standardize terminology consistency by updating "幻相" to "幻象" in Day 13 and Day 20 content
+
+### Fixed
+- Correct minor text inconsistencies and grammatical issues across multiple daily reflection pages
+- Resolve text formatting issues to improve content clarity and flow
+
+### Removed
+- Remove metadata test page as it is no longer needed
+
 ## [0.1.2] - 2025-09-04
 
 ### Added
