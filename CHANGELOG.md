@@ -4,19 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
-## [0.1.7] - 2025-01-27
-
-### Added
-- 
-
-### Changed
-- 
+## [0.1.8] - 2025-09-15
 
 ### Fixed
-- 
+- Fix typo in Day 15 reflection content by changing "驚呀" to "驚訝" for improved accuracy
 
-### Removed
-- 
+## [0.1.7] - 2025-09-11
+
+### Changed
+- Increase menu width from 21rem to 22rem to improve layout of the book menu content
 
 ## [0.1.6] - 2025-09-10
 
