@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.9] - 2025-10-07
+
+### Fixed
+- Correct phrasing in daily reflections for improved clarity and readability
+
 ## [0.1.8] - 2025-09-15
 
 ### Fixed
