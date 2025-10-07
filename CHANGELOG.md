@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 ## [0.1.9] - 2025-10-07
 
 ### Fixed
-- Correct phrasing in daily reflections for improved clarity and readability
+- Correct phrasing in daily reflections, including updating “無時不刻” to “無時無刻” and revising “清楚” to “清除” in the 6th entry, to improve overall clarity, consistency, and accuracy.
 
 ## [0.1.8] - 2025-09-15
 
@@ -40,6 +40,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
 ### Removed
 - Remove metadata test page as it is no longer needed
+
+## [0.1.4] - 2025-09-04
+
+### Added
+- Add metadata test page for audio playback on mobile
+
+## [0.1.3] - 2025-09-04
+
+### Changed
+- Automate version push in Makefile for streamlined deployment process
 
 ## [0.1.2] - 2025-09-04
 
