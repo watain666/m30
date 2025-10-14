@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.10] - 2025-10-14
+
+### Fixed
+- Correct phrasing in Day 14 reflection by changing "嫵媚人" to "嫵媚動人" for improved text accuracy and readability
+
 ## [0.1.9] - 2025-10-07
 
 ### Fixed
