@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.11] - 2025-10-16
+
+### Fixed
+- Correct phrasing in Day 16 reflection by changing "此做出回應" to "依此做出回應" for improved grammar and readability
+
 ## [0.1.10] - 2025-10-14
 
 ### Fixed
