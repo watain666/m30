@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.12] - 2025-10-17
+
+### Fixed
+- Correct phrasing in Day 20 reflection by changing "項獻" to "貢獻" for improved text accuracy and readability
+
 ## [0.1.11] - 2025-10-16
 
 ### Fixed
