@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.13] - 2025-10-22
+
+### Added
+- Add LINE Bot section to user guide with quick access link and preview image
+
 ## [0.1.12] - 2025-10-17
 
 ### Fixed
