@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.14] - 2025-12-30
+
+### Fixed
+- Comprehensive content review: Corrected various typos, punctuation, and text inconsistencies across Day 1 to Day 30 reflections (including directory index pages `_index.md`) to ensure high-quality reading experience.
+- Updated the phrase "心程意識" to "心和意識" and "紀對" to "絕對" in the 30th daily reflection for improved accuracy.
+
 ## [0.1.13] - 2025-10-22
 
 ### Added
@@ -27,7 +33,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 ## [0.1.9] - 2025-10-07
 
 ### Fixed
-- Correct phrasing in daily reflections, including updating “無時不刻” to “無時無刻” and revising “清楚” to “清除” in the 6th entry, to improve overall clarity, consistency, and accuracy.
+- Correct phrasing in daily reflections, including updating "無時不刻" to "無時無刻" and revising "清楚" to "清除" in the 6th entry, to improve overall clarity, consistency, and accuracy.
 
 ## [0.1.8] - 2025-09-15
 
