@@ -1,6 +1,8 @@
 [submodule "themes/hugo-book"]
 	path = themes/hugo-book
-	url = https://github.com/alex-shpak/hugo-book
+	url = https://github.com/watain666/hugo-book.git
+	branch = m30
 [submodule "themes/hugo-shortcode-roneo-collection"]
 	path = themes/hugo-shortcode-roneo-collection
-	url = https://gitlab.com/Roneo/hugo-shortcode-roneo-collection.git
+	url = https://github.com/watain666/hugo-shortcode-roneo-collection.git
+	branch = m30

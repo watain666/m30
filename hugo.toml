@@ -1,5 +1,5 @@
 baseURL = 'https://miracle30.live/'
-languageCode = 'zh-TW'
+locale = 'zh-TW'
 title = '奇蹟 30'
 theme = ['hugo-shortcode-roneo-collection', 'hugo-book']
 
