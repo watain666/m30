@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.15] - 2026-07-22
+
+### Changed
+- Migrate theme submodules to self-maintained forks under `watain666` (tracking branch `m30`) so Hugo compatibility patches can be maintained independently of upstream:
+  - `hugo-shortcode-roneo-collection` (GitHub mirror)
+  - `hugo-book` (GitHub fork)
+
+### Fixed
+- Hugo v0.164 compatibility: replace the removed `getJSON` function with `resources.GetRemote` piped to `transform.Unmarshal` (with error handling) across the `archive-audio`, `audio-archive`, `github-api`, and `wordpress-api` shortcodes, resolving the `function "getJSON" not defined` build error.
+- Replace deprecated configuration and template APIs: `languageCode` → `locale`, `.Site.LanguageCode` → `.Site.Language.Locale`, `.Language.LanguageDirection` → `.Language.Direction`, and `.Sites` → `hugo.Sites`, eliminating all build-time deprecation warnings.
+
 ## [0.1.14] - 2025-12-30
 
 ### Fixed
