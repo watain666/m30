@@ -1,0 +1,1 @@
+navigator.serviceWorker&&navigator.serviceWorker.register("/preview-fix/sw.js",{scope:"/preview-fix/"})
