@@ -31,11 +31,11 @@ update-version:
 	fi
 
 # build website
-build: update-version
+build:
 	hugo --minify
 
 # develop server
-dev: update-version
+dev:
 	hugo server --disableFastRender
 
 # clean build files
