@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.16] - 2026-07-22
+
+### Added
+- Enable full-text search across all daily reflection content, with matched excerpts and literal-match highlighting in search results.
+- Let each search result link directly to the matched passage; the target scrolls into view, highlights temporarily, then clears the highlight parameter from the URL.
+
+### Fixed
+- Update the self-maintained `hugo-book` fork’s day-page base template to use Hugo’s current language APIs, removing the remaining deprecation warnings during builds.
+
 ## [0.1.15] - 2026-07-22
 
 ### Changed

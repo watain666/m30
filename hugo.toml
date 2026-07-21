@@ -3,7 +3,7 @@ locale = 'zh-TW'
 title = '奇蹟 30'
 theme = ['hugo-shortcode-roneo-collection', 'hugo-book']
 
-BookSearch = false
+BookSearch = true
 
 # Book configuration
 disablePathToLower = true
@@ -23,7 +23,7 @@ enableGitInfo = true
   BookTheme = 'auto'
 
   # Version information
-  Version = 'v0.1.15'
+  Version = 'v0.1.16'
 
   # (Optional, default true) Controls table of contents visibility on right side of pages.
   # Start and end levels can be controlled with markup.tableOfContents setting.
@@ -67,7 +67,7 @@ enableGitInfo = true
   # (Optional, default true) Enables search function with flexsearch,
   # Index is built on fly, therefore it might slowdown your website.
   # Configuration for indexing can be adjusted in i18n folder per language.
-  BookSearch = false
+  BookSearch = true
 
   # (Optional, default true) Enables comments template on pages
   # By default partals/docs/comments.html includes Disqus template
