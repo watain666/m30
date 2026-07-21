@@ -52,6 +52,16 @@
 
 // Sticky mobile header - like frozen table header  
 @media screen and (max-width: 56rem) {
+  // Keep previous and next links visually separate while sharing one row.
+  .book-prev-next > .flex-even {
+    min-width: 0;
+  }
+
+  .book-prev-next-paired > .flex-even + .flex-even {
+    border-inline-start: 1px solid var(--gray-500);
+    padding-inline-start: var(--space-8);
+  }
+
   // Use higher specificity to override theme defaults
   .container .book-page .book-header,
   .book-page .book-header {
