@@ -51,7 +51,7 @@
 }
 
 // Sticky mobile header - like frozen table header  
-@media screen and (max-width: $mobile-breakpoint) {
+@media screen and (max-width: 56rem) {
   // Use higher specificity to override theme defaults
   .container .book-page .book-header,
   .book-page .book-header {
@@ -223,7 +223,7 @@
   }
   
   // Dark theme sticky header
-  @media screen and (max-width: $mobile-breakpoint) {
+  @media screen and (max-width: 56rem) {
     .container .book-page .book-header,
     .book-page .book-header {
       background-color: var(--body-background) !important;
@@ -245,7 +245,7 @@
   }
   
   // Light theme sticky header
-  @media screen and (max-width: $mobile-breakpoint) {
+  @media screen and (max-width: 56rem) {
     .container .book-page .book-header,
     .book-page .book-header {
       background-color: var(--body-background) !important;
@@ -301,12 +301,16 @@ $new-menu-width: 22rem !default;
     
     .book-menu-content {
         width: $new-menu-width;
-        @include fixed;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 }
 
 // Responsive styles
-@media screen and (max-width: $mobile-breakpoint) {
+@media screen and (max-width: 56rem) {
 
     .book-menu {
         margin-inline-start: -$new-menu-width;

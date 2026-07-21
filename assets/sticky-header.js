@@ -3,9 +3,14 @@
     let isInitialized = false;
     let lastClickedTarget = null; // Move to global scope within IIFE
 
+    function isMobileViewport() {
+        const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+        return window.innerWidth <= rootFontSize * 56;
+    }
+
     function initStickyHeader() {
         // Only run sticky header logic on mobile
-        if (window.innerWidth > 768) return; // Approximate mobile breakpoint
+        if (!isMobileViewport()) return;
         
         const header = document.querySelector('.book-header');
         if (!header) return;
@@ -120,7 +125,7 @@
                 }
                 
                 // Calculate proper scroll position with offset for sticky header
-                const isMobile = window.innerWidth <= 768; // Match $mobile-breakpoint
+                const isMobile = isMobileViewport();
                 let headerOffset = 0;
                 
                 if (isMobile) {
@@ -204,7 +209,7 @@
     }
 
     function handleResize() {
-        if (window.innerWidth <= 768 && !isInitialized) {
+        if (isMobileViewport() && !isInitialized) {
             initStickyHeader();
         }
     }
