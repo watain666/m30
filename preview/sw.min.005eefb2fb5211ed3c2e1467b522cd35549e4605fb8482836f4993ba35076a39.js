@@ -1,1 +1,0 @@
-navigator.serviceWorker&&navigator.serviceWorker.register("/preview/sw.js",{scope:"/preview/"})
