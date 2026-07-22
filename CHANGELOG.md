@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.22] - 2026-07-22
+
+### Fixed
+- Keep the mobile search field at 16px so iOS does not zoom the PWA when the field receives focus.
+
+### Added
+- Add a rendered-CSS regression check that preserves the iOS-safe search field font size.
+
 ## [0.1.21] - 2026-07-22
 
 ### Fixed

@@ -37,6 +37,7 @@ build:
 # Verify audio metadata emitted by the rendered site.
 test:
 	./scripts/check-audio-media-session.sh
+	./scripts/check-mobile-search-font.sh
 
 # develop server
 dev:

@@ -1,6 +1,11 @@
 @import "plugins/scrollbars";
 // @import "plugins/numbered";
 
+// Keep Safari on iOS from auto-zooming when the search field receives focus.
+.book-search input {
+  font-size: 16px;
+}
+
 // Footer date link styling
 .footer-date-link {
   color: var(--body-font-color) !important;
