@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.23] - 2026-07-22
+
+### Fixed
+- Use one soft amber highlight treatment for search-result excerpts and the matching passage after navigation.
+- Keep the passage highlight visible after navigation so it remains consistent with the search result.
+
+### Added
+- Add a rendered-site regression check that verifies both search highlight locations share one CSS rule.
+
 ## [0.1.22] - 2026-07-22
 
 ### Fixed

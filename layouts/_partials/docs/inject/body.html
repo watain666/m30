@@ -1,17 +1,4 @@
 {{/* Scroll to and highlight the passage a search result linked to (?hl=...) */}}
-<style>
-  mark.search-highlight {
-    background-color: #ffe066;
-    color: #000;
-    border-radius: 2px;
-    padding: 0 1px;
-    transition: background-color 1.2s ease, color 1.2s ease;
-  }
-  mark.search-highlight.search-highlight--fade {
-    background-color: transparent;
-    color: inherit;
-  }
-</style>
 <script>
   (function () {
     var params = new URLSearchParams(window.location.search);

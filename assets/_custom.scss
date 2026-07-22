@@ -6,6 +6,21 @@
   font-size: 16px;
 }
 
+// Use one readable, low-glare highlight treatment for search excerpts and passages.
+:root {
+  --search-highlight-background: #fde68a;
+  --search-highlight-color: #1f2937;
+}
+
+.book-search-excerpt mark,
+mark.search-highlight,
+.search-highlight {
+  background-color: var(--search-highlight-background);
+  color: var(--search-highlight-color);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
 // Footer date link styling
 .footer-date-link {
   color: var(--body-font-color) !important;

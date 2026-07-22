@@ -38,6 +38,7 @@ build:
 test:
 	./scripts/check-audio-media-session.sh
 	./scripts/check-mobile-search-font.sh
+	./scripts/check-search-highlight-colors.sh
 
 # develop server
 dev:
