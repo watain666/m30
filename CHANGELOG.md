@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.21] - 2026-07-22
+
+### Fixed
+- Make the audio metadata regression check use standard `grep` so it runs on the GitHub Actions deployment image.
+
 ## [0.1.20] - 2026-07-22
 
 ### Added
