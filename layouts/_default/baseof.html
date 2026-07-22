@@ -15,6 +15,26 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      function updateMediaSession(player) {
+          if (!('mediaSession' in navigator) || typeof window.MediaMetadata !== 'function') {
+              return;
+          }
+
+          const audio = player.media;
+          const title = audio.dataset.title;
+          const artist = audio.dataset.artist;
+
+          if (!title && !artist) {
+              return;
+          }
+
+          navigator.mediaSession.metadata = new MediaMetadata({
+              title: title || document.title,
+              artist: artist || '',
+              album: document.querySelector('h1')?.textContent.trim() || document.title,
+          });
+      }
+
       const players = Array.from(document.querySelectorAll('.player')).map(
           p => new Plyr(p, {
               controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'settings'],
@@ -51,6 +71,7 @@
       players.forEach(function(p, index){
           p.on('play', event => {
               const instance = event.detail.plyr;
+              updateMediaSession(instance);
               console.log('Stop others players');
               players.forEach(function(p){ if(p != instance) p.stop()});
           });

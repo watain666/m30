@@ -1,4 +1,4 @@
-.PHONY: update-version build
+.PHONY: update-version build test
 
 # Get current version and bump it
 update-version:
@@ -33,6 +33,10 @@ update-version:
 # build website
 build:
 	hugo --minify
+
+# Verify audio metadata emitted by the rendered site.
+test:
+	./scripts/check-audio-media-session.sh
 
 # develop server
 dev:

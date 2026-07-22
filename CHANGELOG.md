@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.20] - 2026-07-22
+
+### Added
+- Add a rendered-site regression check for every audio player's lock-screen title and artist metadata, and run it before deployment.
+
+### Fixed
+- Synchronize each playing audio track's title, artist, and course name to the browser Media Session so iOS lock-screen controls display the correct information.
+- Give the AI guide player an explicit title and artist instead of falling back to the filename.
+
 ## [0.1.16] - 2026-07-22
 
 ### Added

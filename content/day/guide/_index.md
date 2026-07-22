@@ -7,7 +7,7 @@ bookFlatSection: true
 
 ## 🎙️ 奇蹟 30 AI 導讀
 
-{{< audio "/a/guide.m4a" "《奇蹟30》心靈轉化之旅：從覺察、寬恕到豐盛，如何轉換知見擁抱奇蹟" >}}
+{{< audio src="/a/guide.m4a" title="《奇蹟30》心靈轉化之旅：從覺察、寬恕到豐盛，如何轉換知見擁抱奇蹟" artist="奇蹟 30" >}}
 > <em>本 Podcast 由 Google Gemini 生成</em>
 
 ---
