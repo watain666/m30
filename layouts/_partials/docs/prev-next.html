@@ -16,7 +16,7 @@
     <span class="flex-even">
     {{ with $next }}
       <a href="{{ .RelPermalink }}" class="flex align-center justify-end">
-        <span>{{ partial "docs/title" . }}</span>
+        <span class="text-right">{{ partial "docs/title" . }}</span>
         <img src="{{ partial "docs/icon" "forward" }}" class="book-icon" alt="{{ partial "docs/text/i18n" "Forward" }}" />
       </a>
     {{ end }}
