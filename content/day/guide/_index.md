@@ -208,9 +208,7 @@ bookFlatSection: true
 
 ## 📞 需要幫助？
 
-如果您在使用網站的過程中遇到任何問題，或有任何建議，歡迎透過 E-Mail 與我聯絡
-
-📧 E-Mail: admin@miracle30.live
+如果您在使用網站的過程中遇到任何問題，或有任何建議，歡迎透過 [GitHub Issues](https://github.com/watain666/m30/issues) 與我聯絡
 
 ---
 

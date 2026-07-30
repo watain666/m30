@@ -2,7 +2,7 @@
 
 > 30 天心靈轉化之旅：從覺察、寬恕到豐盛，轉換知見擁抱奇蹟
 
-🌐 **網站**: [miracle30.live](https://miracle30.live/)
+🌐 **網站**: [tiaui.co/m30](https://tiaui.co/m30/)
 
 ## 📖 專案介紹
 

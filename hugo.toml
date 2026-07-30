@@ -1,4 +1,4 @@
-baseURL = 'https://miracle30.live/'
+baseURL = 'https://tiaui.co/m30/'
 locale = 'zh-TW'
 title = '奇蹟 30'
 theme = ['hugo-shortcode-roneo-collection', 'hugo-book']
