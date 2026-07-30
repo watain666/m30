@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.25] - 2026-07-31
+
+### Fixed
+- Serve the site, navigation links, assets, and PWA scope from the GitHub Pages `/m30/` subpath.
+- Preserve the `/m30/` prefix when the homepage redirects to the current day's course.
+- Stop publishing the expired `miracle30.live` custom-domain configuration and replace its contact address with GitHub Issues.
+
 ## [0.1.24] - 2026-07-26
 
 ### Fixed
