@@ -1,4 +1,4 @@
-.PHONY: update-version build test
+.PHONY: update-version build test release-notes-check
 
 # Get current version and bump it
 update-version:
@@ -39,6 +39,14 @@ test:
 	./scripts/check-audio-media-session.sh
 	./scripts/check-mobile-search-font.sh
 	./scripts/check-search-highlight-colors.sh
+
+# Validate a completed GitHub Release note against this repository's format.
+release-notes-check:
+	@./scripts/check-release-notes.sh \
+		"$(RELEASE_TAG)" \
+		"$(PREVIOUS_RELEASE_TAG)" \
+		"$(RELEASE_TITLE)" \
+		"$(RELEASE_NOTES_FILE)"
 
 # develop server
 dev:
