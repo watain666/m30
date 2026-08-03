@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/).
 
+## [0.1.26] - 2026-08-04
+
+### Fixed
+- Correct Day 3 wording from `巨細靡遺` to `鉅細靡遺`.
+- Correct high-confidence typos, missing characters, pronouns, and punctuation across 23 additional daily reflection pages.
+- Align section titles in Day 4, Day 17, and Day 21 with their corresponding course audio titles.
+
 ## [0.1.25] - 2026-07-31
 
 ### Fixed
