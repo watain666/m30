@@ -1,4 +1,4 @@
-.PHONY: update-version build test release-notes-check
+.PHONY: update-version build test release-notes-check release-create
 
 # Get current version and bump it
 update-version:
@@ -47,6 +47,34 @@ release-notes-check:
 		"$(PREVIOUS_RELEASE_TAG)" \
 		"$(RELEASE_TITLE)" \
 		"$(RELEASE_NOTES_FILE)"
+
+# Validate and publish a GitHub Release from an existing tag.
+release-create:
+	@if [ -z "$(RELEASE_NOTES_FILE)" ] || [ "$(RELEASE_NOTES_FILE)" = "-" ]; then \
+		printf '%s\n' \
+			'FAIL: RELEASE_NOTES_FILE must be a reusable file path for release-create' >&2; \
+		exit 2; \
+	fi
+	@case "$(RELEASE_DRY_RUN)" in \
+		""|0|1) ;; \
+		*) printf 'FAIL: RELEASE_DRY_RUN must be 0 or 1, received: %s\n' \
+			"$(RELEASE_DRY_RUN)" >&2; exit 2 ;; \
+	esac
+	@$(MAKE) --no-print-directory release-notes-check \
+		RELEASE_TAG="$(RELEASE_TAG)" \
+		PREVIOUS_RELEASE_TAG="$(PREVIOUS_RELEASE_TAG)" \
+		RELEASE_TITLE="$(RELEASE_TAG)" \
+		RELEASE_NOTES_FILE="$(RELEASE_NOTES_FILE)"
+	@if [ "$(RELEASE_DRY_RUN)" = "1" ]; then \
+		printf 'DRY RUN: would create GitHub Release %s from %s\n' \
+			"$(RELEASE_TAG)" \
+			"$(RELEASE_NOTES_FILE)"; \
+	else \
+		gh release create "$(RELEASE_TAG)" \
+			--verify-tag \
+			--title "$(RELEASE_TAG)" \
+			--notes-file "$(RELEASE_NOTES_FILE)"; \
+	fi
 
 # develop server
 dev:

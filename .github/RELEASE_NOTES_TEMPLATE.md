@@ -80,14 +80,29 @@ Before writing the note:
 
 ## Publish or edit
 
+Preview Release creation without writing to GitHub:
+
+```bash
+make release-create \
+  RELEASE_TAG=vX.Y.Z \
+  PREVIOUS_RELEASE_TAG=vA.B.C \
+  RELEASE_NOTES_FILE=/path/to/completed-release-notes.md \
+  RELEASE_DRY_RUN=1
+```
+
 Create a Release from an existing tag:
 
 ```bash
-gh release create vX.Y.Z \
-  --verify-tag \
-  --title vX.Y.Z \
-  --notes-file /path/to/completed-release-notes.md
+make release-create \
+  RELEASE_TAG=vX.Y.Z \
+  PREVIOUS_RELEASE_TAG=vA.B.C \
+  RELEASE_NOTES_FILE=/path/to/completed-release-notes.md
 ```
+
+`release-create` requires a regular notes file, forces the Release title to the
+exact tag, runs `release-notes-check`, and then calls `gh release create` with
+`--verify-tag`. It never accepts standard input because the checker and
+publisher must both read the completed note.
 
 Edit an existing Release without changing its tag:
 
